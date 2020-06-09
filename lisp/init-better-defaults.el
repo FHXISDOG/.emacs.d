@@ -9,7 +9,14 @@
     initial-frame-alist (quote ((fullscreen . maximized))) ;;打开之后全屏
     default-directory "~" ;; 默认文件打开的位置
     menu-bar-mode t
-)
+    )
+(require 'cl)
+;;不同操作系统不同配置
+(when (eq system-type 'windows-nt)
+  (setq
+   shell-file-name "bash.exe"
+   )
+ )
 ;;显示行号
 (global-display-line-numbers-mode)
 ;; 不显示工具栏

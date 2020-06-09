@@ -50,6 +50,8 @@
       (append
        '(("\\.js\\'" . js2-mode))
        '(("\\.html\\'" . web-mode))
+       '(("\\.md\\'" . markdown-mode))
+       '(("\\.markdown\\'" . markdown-mode))
        auto-mode-alist))
 
 
