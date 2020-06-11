@@ -8,7 +8,8 @@
     auto-save-default nil ;; 不自动保存
     initial-frame-alist (quote ((fullscreen . maximized))) ;;打开之后全屏
     default-directory "~" ;; 默认文件打开的位置
-    menu-bar-mode t
+    menu-bar-mode nil ;;不要菜单栏
+    toggle-scroll-bar nil ;; 不要滚动条
     )
 (require 'cl)
 ;;不同操作系统不同配置
