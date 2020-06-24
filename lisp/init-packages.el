@@ -26,7 +26,7 @@
 			   counsel
 			   smartparens
 			   popwin
-			   
+			   monokai-pro-theme
 			   ;; --- Major Mode ---
 			   ;;js2-mode
 			   markdown-mode
