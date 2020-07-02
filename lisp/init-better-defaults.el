@@ -8,20 +8,27 @@
     auto-save-default nil ;; 不自动保存
     initial-frame-alist (quote ((fullscreen . maximized))) ;;打开之后全屏
     default-directory "~" ;; 默认文件打开的位置
-    menu-bar-mode nil ;;不要菜单栏
-    toggle-scroll-bar nil ;; 不要滚动条
     )
+;; default minor mode
+(column-number-mode 1) ;;显示column
+(electric-pair-mode 1) ;;自动补全括号
+(menu-bar-mode -1) ;;不显示菜单栏
+(scroll-bar-mode -1) ;;不显示滚动条
+(tool-bar-mode -1) ;; 不显示工具栏
+;;tab 宽度
+(custom-set-variables
+ '(tab-width 4)
+)
 (require 'cl)
 ;;不同操作系统不同配置
-(when (eq system-type 'windows-nt)
-  (setq
-   shell-file-name "bash.exe"
-   )
- )
+;;(when (eq system-type 'windows-nt)
+;;  (setq
+;;   shell-file-name "/c/Windows/system32/cmd.exe"
+;;   )
+;; )
 ;;显示行号
 (global-display-line-numbers-mode)
-;; 不显示工具栏
-(tool-bar-mode -1)
+
 ;; yes/no -> y/n
 (fset 'yes-or-no-p 'y-or-n-p)
 

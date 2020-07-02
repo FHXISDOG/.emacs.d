@@ -27,6 +27,7 @@
 			   smartparens
 			   popwin
 			   monokai-pro-theme
+			   highlight-parentheses
 			   ;; --- Major Mode ---
 			   ;;js2-mode
 			   markdown-mode
