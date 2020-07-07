@@ -1,4 +1,7 @@
 (package-initialize)
+
+(require 'cl)
+
 (setq 
     inhibit-splash-screen 1 ;;关闭帮助画面
     inhibit-compacting-font-caches t ;;解决windows下面卡顿问题
@@ -8,6 +11,11 @@
     auto-save-default nil ;; 不自动保存
     initial-frame-alist (quote ((fullscreen . maximized))) ;;打开之后全屏
     default-directory "~" ;; 默认文件打开的位置
+	ring-bell-function 'ignore
+;;	url-proxy-services '(("no_proxy" . "localhost:1081") ;;设置代理
+;;						 ("http" . "localhost:1081") 
+;;						 ("https" . "localhost:1081")
+;;						 )
     )
 ;; default minor mode
 (column-number-mode 1) ;;显示column
@@ -19,7 +27,6 @@
 (custom-set-variables
  '(tab-width 4)
 )
-(require 'cl)
 ;;不同操作系统不同配置
 ;;(when (eq system-type 'windows-nt)
 ;;  (setq
@@ -28,7 +35,8 @@
 ;; )
 ;;显示行号
 (global-display-line-numbers-mode)
-
+;;高亮当前行
+(global-hl-line-mode 1)
 ;; yes/no -> y/n
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -37,7 +45,14 @@
 (delete-selection-mode 1)
 ;; 自动加载外部修改过的文件
 (global-auto-revert-mode 1)
-
+;;显示启动信息
+(add-hook 'emacs-startup-hook
+    (lambda ()
+        (message "Emacs ready in %s with %d garbage collections."
+            (format "%.2f seconds"
+                (float-time
+                    (time-subtract after-init-time before-init-time)))
+        gcs-done)))
 ;; make backup to a designated dir, mirroring the full path
 
 (defun my-backup-file-name (fpath)

@@ -31,6 +31,7 @@
 			   ;; --- Major Mode ---
 			   ;;js2-mode
 			   markdown-mode
+			   projectile
 			   ))
 ;;自动下载所需要的包
  (setq package-selected-packages my/packages)
