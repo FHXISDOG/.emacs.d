@@ -32,6 +32,8 @@
 			   ;;js2-mode
 			   markdown-mode
 			   projectile
+			   helm
+			   go-mode
 			   ))
 ;;自动下载所需要的包
  (setq package-selected-packages my/packages)

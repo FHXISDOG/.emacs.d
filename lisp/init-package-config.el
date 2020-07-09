@@ -33,9 +33,11 @@
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (projectile-mode +1)
-
 (setq projectile-project-search-path '("~/.projects/" "~/work/"))
 (setq projectile-switch-project-action #'projectile-dired)
+
+
+;;helm配置
 
  ;; 文件末尾
 (provide 'init-package-config)

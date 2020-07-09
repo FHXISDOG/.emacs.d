@@ -5,7 +5,7 @@
 (setq 
     inhibit-splash-screen 1 ;;关闭帮助画面
     inhibit-compacting-font-caches t ;;解决windows下面卡顿问题
-    backup-directory-alist `(("." . "~/.emacs.d/backup")) ;;备份文件位置
+    backup-directory-alist `(("." . "~/.emacsmo.d/backup")) ;;备份文件位置
     make-backup-file-name-function 'my-backup-file-name
     make-backup-files nil ;; 不生成备份文件
     auto-save-default nil ;; 不自动保存
@@ -73,7 +73,7 @@ If the new path's directories does not exist, create them."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "JetBrains Mono" :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
+ '(default ((t (:family "Source Code Pro" :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
 ;; Chinese Font 配制中文字体
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
@@ -128,6 +128,29 @@ If the new path's directories does not exist, create them."
 (prefer-coding-system 'utf-8-unix)
 ;; 编码设置 end
 
+(defun window-half-height ()
+     (max 1 (/ (1- (window-height (selected-window))) 2)))
+   
+(defun scroll-up-half ()
+     (interactive)
+     (scroll-up (window-half-height)))
+   
+(defun scroll-down-half ()         
+     (interactive)                    
+     (scroll-down (window-half-height)))
+
+(defun scroll-half-page-down ()
+  "scroll down half the page"
+  (interactive)
+  (scroll-down (/ (window-body-height) 2)))
+
+(defun scroll-half-page-up ()
+  "scroll up half the page"
+  (interactive)
+  (scroll-up (/ (window-body-height) 2)))
+
+(global-set-key (kbd "C-v") 'scroll-up-half)
+(global-set-key (kbd "M-v") 'scroll-down-half)
 ;; 文件末尾
 
 (provide 'init-better-defaults)
